@@ -84,8 +84,12 @@ public class NavProcessor extends AbstractProcessor {
                 outPutFile.createNewFile();
 
                 String content = JSON.toJSONString(destMap);
+                messager.printMessage(Diagnostic.Kind.NOTE,content + "22222222222222222");
+
                 fos = new FileOutputStream(outPutFile);
                 writer = new OutputStreamWriter(fos,"UTF-8");
+                writer.write(content);
+                writer.flush();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -112,6 +116,9 @@ public class NavProcessor extends AbstractProcessor {
     private void handleDestination(Set<? extends Element> elements, Class<? extends Annotation> annotationClass, HashMap<String, JSONObject> destMap) {
 
         for (Element element : elements) {
+
+            messager.printMessage(Diagnostic.Kind.NOTE,"33333333");
+
             TypeElement typeElement = (TypeElement) element;
             String pageUrl = null;
             String clazzName = typeElement.getQualifiedName().toString();
@@ -123,6 +130,7 @@ public class NavProcessor extends AbstractProcessor {
 
             Annotation annotation = typeElement.getAnnotation(annotationClass);
             if (annotation instanceof FragmentDestination) {
+                messager.printMessage(Diagnostic.Kind.NOTE,"4444444");
                 FragmentDestination dest = (FragmentDestination) annotation;
                 pageUrl = dest.pageUrl();
                 asStarter = dest.asStarter();
@@ -146,6 +154,7 @@ public class NavProcessor extends AbstractProcessor {
                 object.put("pageUrl",pageUrl);
                 object.put("clazzName",clazzName);
                 object.put("isFragment",isFragment);
+                destMap.put(pageUrl, object);
             }
 
 

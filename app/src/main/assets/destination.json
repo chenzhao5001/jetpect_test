@@ -1,0 +1,10 @@
+{
+  "main/tabs/home": {
+    "isFragment": true,
+    "asStarter": true,
+    "needLogin": false,
+    "pageUrl": "main/tabs/home",
+    "id": 1520957265,
+    "clazzName": "com.cz.jetpack.study.ui.home.HomeFragment"
+  }
+}
