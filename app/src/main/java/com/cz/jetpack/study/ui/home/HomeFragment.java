@@ -10,8 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.cz.jetpack.lib_nav_annotation.FragmentDestination;
 import com.cz.jetpack.study.databinding.FragmentHomeBinding;
 
+@FragmentDestination(pageUrl = "main/tabs/home", asStarter = true)
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;

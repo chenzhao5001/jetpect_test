@@ -19,6 +19,7 @@ import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
@@ -30,7 +31,7 @@ import javax.tools.FileObject;
 import javax.tools.StandardLocation;
 
 
-@AutoService(Process.class)
+@AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 @SupportedAnnotationTypes({"com.cz.jetpack.lib_nav_annotation.ActivityDestination",
         "com.cz.jetpack.lib_nav_annotation.FragmentDestination"})
@@ -44,10 +45,12 @@ public class NavProcessor extends AbstractProcessor {
         super.init(processingEnv);
         messager = processingEnv.getMessager();
         filer = processingEnv.getFiler();
+        messager.printMessage(Diagnostic.Kind.NOTE,"11111111111111111");
     }
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
+        messager.printMessage(Diagnostic.Kind.NOTE,"22222222222222222");
         Set<? extends Element> fragmentElements = roundEnvironment.getElementsAnnotatedWith(FragmentDestination.class);
         Set<? extends Element> activityElements = roundEnvironment.getElementsAnnotatedWith(ActivityDestination.class);
 
@@ -69,6 +72,7 @@ public class NavProcessor extends AbstractProcessor {
                 String appPath = resourcePath.substring(0,resourcePath.indexOf("app") + 4);
                 String assetsPath = appPath + "src/main/assets";
 
+                messager.printMessage(Diagnostic.Kind.NOTE,"newPath: " + assetsPath);
                 File file = new File(assetsPath);
                 if(!file.exists()) {
                     file.mkdir();
