@@ -1,9 +1,12 @@
 package com.cz.jetpack.study;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -13,9 +16,10 @@ import com.cz.jetpack.study.databinding.ActivityMainBinding;
 
 import utils.NavGraphBuilder;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private ActivityMainBinding binding;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +27,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
-        NavController navController = Navigation.findNavController(this,R.id.nav_host_fragment_activity_main);
+        NavController navController = Navigation.findNavController(this,R.id.nav_host_fragment_activity_main    );
         NavigationUI.setupWithNavController(navView,navController);
         NavGraphBuilder.build(navController);
+
+        navView.setOnNavigationItemSelectedListener(this);
 //
 //        binding = ActivityMainBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
@@ -41,4 +47,12 @@ public class MainActivity extends AppCompatActivity {
 //        NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        navController.navigate(item.getItemId());
+
+        // false 不能被选中 true可以选中
+
+        return TextUtils.isEmpty(item.getTitle());
+    }
 }
