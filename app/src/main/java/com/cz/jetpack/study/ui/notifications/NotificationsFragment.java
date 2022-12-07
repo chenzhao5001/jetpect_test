@@ -10,8 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.cz.jetpack.lib_nav_annotation.FragmentDestination;
 import com.cz.jetpack.study.databinding.FragmentNotificationsBinding;
 
+@FragmentDestination(pageUrl = "main/tabs/notification")
 public class NotificationsFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;

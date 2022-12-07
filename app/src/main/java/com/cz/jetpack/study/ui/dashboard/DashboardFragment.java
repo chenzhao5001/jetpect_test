@@ -10,8 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.cz.jetpack.lib_nav_annotation.FragmentDestination;
 import com.cz.jetpack.study.databinding.FragmentDashboardBinding;
 
+@FragmentDestination(pageUrl = "main/tabs/dash")
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
