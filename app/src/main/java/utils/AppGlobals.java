@@ -12,7 +12,6 @@ public class AppGlobals {
             try {
                 Method method = Class.forName("android.app.ActivityThread").getDeclaredMethod("currentApplication");
                 sApplication = (Application) method.invoke(null,null);
-
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
@@ -22,7 +21,6 @@ public class AppGlobals {
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
-
         }
         return sApplication;
     }
