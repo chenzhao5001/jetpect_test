@@ -1,10 +1,13 @@
 package com.cz.jetpack.study.ui.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +15,7 @@ import androidx.annotation.Nullable;
 import com.cz.jetpack.study.R;
 import com.cz.jetpack.study.medel.BottomBar;
 import com.cz.jetpack.study.medel.Destination;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
@@ -33,6 +37,7 @@ public class AppBottomBar extends BottomNavigationView {
         super(context, attrs,0);
     }
 
+    @SuppressLint("RestrictedApi")
     public AppBottomBar(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
@@ -64,7 +69,23 @@ public class AppBottomBar extends BottomNavigationView {
 
         for(int i = 0; i < tabs.size();i++) {
             BottomBar.Tabs tab = tabs.get(0);
+            int iconSize = dp2px(tab.size);
+            BottomNavigationView menuView = (BottomNavigationView)getChildAt(0);
+            BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(tab.index);
+            itemView.setIconSize(iconSize);
+
+            // 中间的大按钮
+            if(TextUtils.isEmpty(tab.title)) {
+                itemView.setIconTintList(ColorStateList.valueOf(Color.parseColor(tab.tintColor)));
+                // 阻止点击上下浮动
+                itemView.setShifting(false);
+            }
         }
+    }
+
+    private int dp2px(int size) {
+        float value = getContext().getResources().getDisplayMetrics().density * size + 0.5f;
+        return (int) value;
     }
 
     private int getId(String pageUrl) {
