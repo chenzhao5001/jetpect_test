@@ -28,13 +28,13 @@ public class NavGraphBuilder {
                 destination.setClassName(value.clazzName);
                 destination.setId(value.id);
                 destination.addDeepLink(value.pageUrl);
-                navGraph.addDestination(navGraph);
+                navGraph.addDestination(destination);
             } else {
                 ActivityNavigator.Destination destination = activityNavigator.createDestination();
                 destination.setComponentName(new ComponentName(AppGlobals.getApplication(),value.clazzName));
                 destination.setId(value.id);
                 destination.addDeepLink(value.pageUrl);
-                navGraph.addDestination(navGraph);
+                navGraph.addDestination(destination);
             }
 
             if(value.asStarter) {
