@@ -2,20 +2,20 @@ package utils;
 
 import android.content.res.AssetManager;
 
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.cz.jetpack.study.medel.BottomBar;
 import com.cz.jetpack.study.medel.Destination;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 
 public class AppConfig {
     private static HashMap<String, Destination> sDestConfig;
+    private static BottomBar sBottomBar;
 
     public static HashMap<String, Destination> getDestConfig() {
         if (sDestConfig == null) {
@@ -24,6 +24,15 @@ public class AppConfig {
         }
         return sDestConfig;
    }
+
+   public static BottomBar getsBottomBar() {
+        if(sBottomBar == null) {
+            String content = parseFile("main_tabs_config.json");
+            sBottomBar = JSON.parseObject(content,BottomBar.class);
+        }
+        return sBottomBar;
+   }
+
 
     private static String parseFile(String fileName) {
         AssetManager assets = AppGlobals.getApplication().getResources().getAssets();
