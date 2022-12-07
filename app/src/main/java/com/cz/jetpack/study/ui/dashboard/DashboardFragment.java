@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.cz.jetpack.lib_nav_annotation.FragmentDestination;
 import com.cz.jetpack.study.databinding.FragmentDashboardBinding;
 
-@FragmentDestination(pageUrl = "main/tabs/dash")
+@FragmentDestination(pageUrl = "main/tabs/find")
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;

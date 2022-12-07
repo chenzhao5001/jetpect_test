@@ -1,4 +1,4 @@
-package com.cz.jetpack.study.ui.notifications;
+package com.cz.jetpack.study.ui.other;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.cz.jetpack.lib_nav_annotation.FragmentDestination;
 import com.cz.jetpack.study.databinding.FragmentNotificationsBinding;
 
-@FragmentDestination(pageUrl = "main/tabs/sofa")
+@FragmentDestination(pageUrl = "main/tabs/my")
 public class NotificationsFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;

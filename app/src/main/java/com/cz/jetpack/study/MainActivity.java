@@ -53,6 +53,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         // false 不能被选中 true可以选中
 
-        return TextUtils.isEmpty(item.getTitle());
+        return !TextUtils.isEmpty(item.getTitle());
     }
 }
