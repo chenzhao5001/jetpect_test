@@ -16,6 +16,7 @@ import com.cz.jetpack.study.R;
 import com.cz.jetpack.study.medel.BottomBar;
 import com.cz.jetpack.study.medel.Destination;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class AppBottomBar extends BottomNavigationView {
     }
 
     public AppBottomBar(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs,0);
+        this(context, attrs,0);
     }
 
     @SuppressLint("RestrictedApi")
@@ -55,7 +56,7 @@ public class AppBottomBar extends BottomNavigationView {
         setSelectedItemId(bottomBar.selectTab);
 
         for(int i = 0; i < tabs.size();i++) {
-            BottomBar.Tabs tab = tabs.get(0);
+            BottomBar.Tabs tab = tabs.get(i);
             if(!tab.enable) {
                 return;
             }
@@ -68,10 +69,11 @@ public class AppBottomBar extends BottomNavigationView {
         }
 
         for(int i = 0; i < tabs.size();i++) {
-            BottomBar.Tabs tab = tabs.get(0);
+            BottomBar.Tabs tab = tabs.get(i);
             int iconSize = dp2px(tab.size);
-            BottomNavigationView menuView = (BottomNavigationView)getChildAt(0);
+            BottomNavigationMenuView menuView = (BottomNavigationMenuView)getChildAt(0);
             BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(tab.index);
+
             itemView.setIconSize(iconSize);
 
             // 中间的大按钮
