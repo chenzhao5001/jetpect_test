@@ -26,6 +26,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    // 开启数据绑定，不需要引入额外的依赖
+    dataBinding {
+        enabled=true
+    }
+
     buildFeatures {
         viewBinding true
     }
