@@ -8,6 +8,7 @@ public class GetRequest<T> extends Request<T, GetRequest> {
 
     @Override
     protected okhttp3.Request generateRequest(okhttp3.Request.Builder builder) {
-        return null;
+        okhttp3.Request request = builder.get().url(UrlCreator.createUrlFromParams(mUrl, params)).build();
+        return request;
     }
 }
