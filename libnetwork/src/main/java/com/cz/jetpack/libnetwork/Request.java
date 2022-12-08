@@ -25,7 +25,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-public abstract class Request<T,R extends Request> {
+public abstract class Request<T,R extends Request>{
 
     protected String mUrl;
     protected HashMap<String,String> headers = new HashMap<>();
