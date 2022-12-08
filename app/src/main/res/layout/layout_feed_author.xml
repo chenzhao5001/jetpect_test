@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:layout_height="@dimen/dp_40"
-    android:paddingLeft="@dimen/dp_16"
-    android:paddingRight="@dimen/dp_16"
-    android:layout_marginBottom="@dimen/dp_10"
-    android:layout_width="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--        tools:src 只会在android studio 中显示-->
-    <ImageView
-        android:id="@+id/avatar"
-        android:layout_width="@dimen/dp_40"
+    <data>
+        <variable
+            name="user"
+            type="User" />
+        <import type="com.cz.jetpack.study.model.User" />
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_height="@dimen/dp_40"
-        tools:src= "@mipmap/ic_launcher_round"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:textSize="@dimen/sp_14"
-        android:textStyle="bold"
-        android:textColor="@color/color_333"
-        android:layout_marginLeft="@dimen/dp_10"/>
-    
-</LinearLayout>
+        android:paddingLeft="@dimen/dp_16"
+        android:paddingRight="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_width="match_parent">
+        <!--        tools:src 只会在android studio 中显示-->
+        <com.cz.jetpack.study.ui.view.MyImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            app:image_url="@{user.avatar}"
+            app:isCircle="@{true}"
+            tools:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            android:text="@{user.name}"
+            android:textColor="@color/color_333"
+            android:layout_marginLeft="@dimen/dp_10" />
+
+    </LinearLayout>
+</layout>

@@ -1,8 +1,4 @@
-package com.cz.jetpack.study.medel;
-
-import android.text.TextUtils;
-
-import androidx.annotation.Nullable;
+package com.cz.jetpack.study.model;
 
 import java.io.Serializable;
 

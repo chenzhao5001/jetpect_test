@@ -10,7 +10,7 @@ import androidx.navigation.NavigatorProvider;
 import androidx.navigation.fragment.FragmentNavigator;
 
 import com.cz.jetpack.libcommon.AppGlobals;
-import com.cz.jetpack.study.medel.Destination;
+import com.cz.jetpack.study.model.Destination;
 
 import java.util.HashMap;
 

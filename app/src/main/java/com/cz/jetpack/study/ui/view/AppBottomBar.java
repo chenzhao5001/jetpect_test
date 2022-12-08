@@ -7,14 +7,13 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.cz.jetpack.study.R;
-import com.cz.jetpack.study.medel.BottomBar;
-import com.cz.jetpack.study.medel.Destination;
+import com.cz.jetpack.study.model.BottomBar;
+import com.cz.jetpack.study.model.Destination;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

@@ -1,4 +1,4 @@
-package com.cz.jetpack.study.medel;
+package com.cz.jetpack.study.model;
 import java.io.Serializable;
 
 public class Ugc implements Serializable {

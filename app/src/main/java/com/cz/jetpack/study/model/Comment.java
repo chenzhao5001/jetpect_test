@@ -1,6 +1,5 @@
-package com.cz.jetpack.study.medel;
+package com.cz.jetpack.study.model;
 
-import androidx.annotation.Nullable;
 import java.io.Serializable;
 
 public class Comment implements Serializable {

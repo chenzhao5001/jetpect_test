@@ -1,4 +1,4 @@
-package com.cz.jetpack.study.medel;
+package com.cz.jetpack.study.model;
 
 public class Destination {
 
