@@ -19,6 +19,8 @@
         <module name="jetpack_project.lib_nav_compiler.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.7" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="jetpack_project.libcommon.test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

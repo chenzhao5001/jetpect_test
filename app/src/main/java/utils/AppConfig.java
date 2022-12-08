@@ -4,6 +4,7 @@ import android.content.res.AssetManager;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.cz.jetpack.libcommon.AppGlobals;
 import com.cz.jetpack.study.medel.BottomBar;
 import com.cz.jetpack.study.medel.Destination;
 

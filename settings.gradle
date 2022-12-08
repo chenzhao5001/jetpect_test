@@ -17,3 +17,5 @@ include ':app'
 include ':lib_nav_annotation'
 include ':lib_nav_compiler'
 include ':libnetwork'
+
+include ':libcommon'
