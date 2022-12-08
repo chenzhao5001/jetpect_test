@@ -1,5 +1,7 @@
 package com.cz.jetpack.libnetwork;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Map;
 
 public class UrlCreator {
@@ -13,7 +15,14 @@ public class UrlCreator {
         }
         for (Map.Entry<String, Object> entry : params.entrySet()) {
 
+            try {
+                String value = URLEncoder.encode(String.valueOf(entry.getValue()),"UTF-8");
+                builder.append(entry.getKey()).append("=").append(value).append("&");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
         }
-        return "";
+        builder.deleteCharAt(builder.length() -1);
+        return builder.toString();
     }
 }
